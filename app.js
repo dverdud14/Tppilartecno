@@ -5,7 +5,8 @@ const countries = require('./countries.json');
  * @returns {Object}
  */
 function getCountryByIso3(isoCode){
-    //Complete with your code
+    const seeker = countries.find (country => country.iso3 == isoCode)
+    console.log (seeker)
 }
 
 /**
@@ -15,14 +16,21 @@ function getCountryByIso3(isoCode){
  * @returns {string}
  */
 function getCountryTranslatedName(isoCode, language){
-    //Complete with your code
+    const seeker = countries.find (country => country.iso3 == isoCode)
+    console.log (seeker.translations[language])
 }
 /**Get an array of all the countries with the specified subregion
  * @param  {string} subregion
  * @returns {Array}
  */
 function getCountriesBySubregion(subregion){
-    //Complete with your code
+    let nameCountry = []
+    countries.forEach(country => {
+        if (country.subregion == subregion){
+            nameCountry.push(country.name)
+        }
+    } )
+    console.log(nameCountry)
 }
 
 function main() {
